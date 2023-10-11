@@ -1,5 +1,5 @@
 // import { render } from "@testing-library/react";
-import { Battons } from "./Battons/Battons";
+import { FeedbackOptions } from "./FeedbackOptions/FeedbackOptions";
 import { Statistics } from "./Statistics/Statistics";
 import { Component } from "react";
 
@@ -13,36 +13,42 @@ export class App extends Component  {
   }
 
 
-  counter = newValue => {
-   
-    this.setState((prevState) => {
-    
+  leaveFeedback = option => {
+    this.setState(prevState => {
       return {
-        good: prevState.good + 1,
-        neutral: prevState.neutral + 1,
-      bad: prevState.bad + 1,
+        [option]: prevState[option] + 1,
       };
-  });
-  }
-  
+    });
+  };
     
 
+  countTotalFeedback() {
+  return this.state.good + this.state.neutral + this.state.bad
+  };
+  
+  countPositiveFeedbackPercentage() {
+    return  Math.round( this.state.good /this.countTotalFeedback()  *100)
+  }
 
   render() {
    const { good, neutral, bad} = this.state
   return (
    
     <>
-      <Battons good={good}
+      <Section title="">
+      <FeedbackOptions good={good}
         neutral={neutral}
         bad={bad}
-        counter={this.counter}
-        newValue ={this.counter.newValue}
+       leaveFeedback={this.leaveFeedback}
+        option ={this.leaveFeedback.option}
       />
       <Statistics good={good}
         neutral={neutral}
-      bad={bad}
+        bad={bad}
+        total={this.countTotalFeedback()}
+        percent = {this.countPositiveFeedbackPercentage()}
       />
+      </Section>
     </>)
 
 }
