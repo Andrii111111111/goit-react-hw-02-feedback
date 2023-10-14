@@ -2,6 +2,7 @@
 import { FeedbackOptions } from "./FeedbackOptions/FeedbackOptions";
 import { Statistics } from "./Statistics/Statistics";
 import { Component } from "react";
+import { Section } from "./Section/Section";
 
 
 export class App extends Component  {
@@ -35,7 +36,7 @@ export class App extends Component  {
   return (
    
     <>
-      <Section title="">
+      <Section/>
       <FeedbackOptions good={good}
         neutral={neutral}
         bad={bad}
@@ -47,8 +48,7 @@ export class App extends Component  {
         bad={bad}
         total={this.countTotalFeedback()}
         percent = {this.countPositiveFeedbackPercentage()}
-      />
-      </Section>
+        />
     </>)
 
 }
