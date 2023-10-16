@@ -1,4 +1,4 @@
-// import counter from '../App.jsx';
+import { ButtonWraper } from './FeedbackOptions.styled';
 
 export const FeedbackOptions = ({
   neutral,
@@ -9,9 +9,9 @@ export const FeedbackOptions = ({
   good,
 }) => {
   return (
-    <div>
+    <ButtonWraper>
       <button
-        type="batton"
+        type="button"
         onClick={() => {
           leaveFeedback('good');
         }}
@@ -19,7 +19,7 @@ export const FeedbackOptions = ({
         Good
       </button>
       <button
-        type="batton"
+        type="button"
         onClick={() => {
           leaveFeedback('neutral');
         }}
@@ -27,13 +27,13 @@ export const FeedbackOptions = ({
         Neutral
       </button>
       <button
-        type="batton"
+        type="button"
         onClick={() => {
           leaveFeedback('bad');
         }}
       >
         Bad
       </button>
-    </div>
+    </ButtonWraper>
   );
 };

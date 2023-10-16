@@ -1,5 +1,5 @@
 import styled from 'styled-components';
 
-export const StatisticsWraper = styled.div`
+export const WaitStatistic = styled.div`
   text-align: center;
 `;

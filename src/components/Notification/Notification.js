@@ -1,7 +1,9 @@
+import { WaitStatistic } from './Notification.style';
+
 export const Notification = ({ good, neutral, bad, total, percent }) => {
   return (
-    <div>
+    <WaitStatistic>
       <p>There is no feedback</p>
-    </div>
+    </WaitStatistic>
   );
 };
