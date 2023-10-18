@@ -1,39 +1,21 @@
 import { ButtonWraper } from './FeedbackOptions.styled';
+import { nanoid } from 'nanoid';
+import titleize from 'titleize';
 
-export const FeedbackOptions = ({
-  neutral,
-  bad,
-  counter,
-  leaveFeedback,
-  option,
-  good,
-}) => {
+export const FeedbackOptions = ({ leaveFeedback, options }) => {
   return (
     <ButtonWraper>
-      <button
-        type="button"
-        onClick={() => {
-          leaveFeedback('good');
-        }}
-      >
-        Good
-      </button>
-      <button
-        type="button"
-        onClick={() => {
-          leaveFeedback('neutral');
-        }}
-      >
-        Neutral
-      </button>
-      <button
-        type="button"
-        onClick={() => {
-          leaveFeedback('bad');
-        }}
-      >
-        Bad
-      </button>
+      {options.map(option => (
+        <button
+          key={nanoid()}
+          type="button"
+          onClick={() => {
+            leaveFeedback(`${option}`);
+          }}
+        >
+          {titleize(`${option}`)}
+        </button>
+      ))}
     </ButtonWraper>
   );
 };

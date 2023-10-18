@@ -1,9 +1,10 @@
 import { Title } from './Section.style';
 
-export const Section = ({ good, neutral, bad, total, percent }) => {
+export const Section = ({ children, title }) => {
   return (
     <Title>
-      <h1>Please leave feedback</h1>
+      <h1>{title}</h1>
+      {children}
     </Title>
   );
 };
